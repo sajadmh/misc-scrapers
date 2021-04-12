@@ -17,7 +17,9 @@
   		.container {
    		 max-width: 38rem;
   		}}
-		
+
+
+
 		.index-bookmarklet {
 		 margin-top: 25px;
 		 -moz-border-radius: 65px;
@@ -37,41 +39,68 @@
 		 transition: box-shadow 0.3s;
 		}
 		
-		.hr {
+		hr {
 		 position: relative;
-		 margin: 1.5rem 0;
+                 margin-top: 75px;
+                 padding-top: 0px !important;
 		 border: 0;
-		 border-top: 1px solid #eee;
-		 border-bottom: 1px solid #fff;
+		 border-top: 1px solid #EEEEEE;
+		 border-bottom: 2px solid #FFFFFF;
 		}
-		
+
 		#main {
 		 display: flex;
 		 justify-content: center;
 		}
+
+                h1 {
+                 text-align: center;
+                 color: #1f5baa;
+                 font-family: "PT Sans", Helvetica, Arial, sans-serif;
+                 font-size: 18px;
+                 font-weight = "bold";
+                }
 		
+
+                p {
+                 text-align: right;
+                 margin-top: -7px;
+                 padding-right: 4px;
+                 color: #CCCCCC;
+                 font-family: "PT Sans", Helvetica, Arial, sans-serif;
+                 font-size: 10px;
+                 font-weight = "bold";
+                }
+
 	</style>
 </head>
 
 <body>
 	
-	<div class="container">
 	<div id="main">
-		
+
 		<div>
 			<img src="https://github.com/sajadmh/WD-Scraper/blob/main/assets/bookmarkme.png?raw=true" style="width: 355px; height: auto; padding: 6px; opacity: 0.8;">
 		</div>
+
 		<div>
 			<a href='javascript: (function scrape1() { unformattedTitle = document.querySelector(".WPIX")?.innerText; title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("(")); unformattedSubtitle = document.querySelector(".WIIX")?.innerText; subtitle = unformattedSubtitle.slice(12); source = document.getElementById("56$581439")?.innerText; unformattedManager = document.getElementById("56$307577")?.innerText || ""; manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" (")); unformattedRecruiter = document.getElementById("56$307582")?.innerText || ""; recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" (")); unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || ""; phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" (")); email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || ""; tab = String.fromCodePoint(9); console.log("scraped!"); url = window.location.href; navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "15px"; el.style.right = "15px"; el.style.marginRight = "15px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function(){ el.remove(); }, 4250); } })();' id='bookmarklet'>
 				<img class="index-bookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper.png" alt="Grab WD Data" style="width: 210px; height: auto;">
 			</a>
 		</div>
+		</div>
 		
-		<hr>
-		
-		<p><strong>WD Scraper</strong> grabs data and copies to your clipboard.</p>
-		
-	</div>
+
+	<div class="container">
+
+
+		<hr />
+
+                <p>Version: 0.1</p>
+
+		<!-- <h1>WD Scraper grabs data and copies to your clipboard.</h1> --!>
+
+
 	</div>
 		
 		
