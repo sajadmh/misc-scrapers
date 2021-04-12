@@ -247,11 +247,14 @@ el.remove();
          <p>Version: 0.1  (x004)</p>
 	      
       </div>
+
       <script type="text/javascript">
-         $('#bookmarklet').click(function(e) {
-                      e.preventDefault();
-                  });
+	  document.querySelector("#index-bookmarklet").addEventListener("click", function(event) {
+          document.getElementById("output-box").innerHTML += "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
+          event.preventDefault();
+          }, false);
       </script>
+
       <script>
          var acc = document.getElementsByClassName("accordion");
          var i;
