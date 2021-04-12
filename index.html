@@ -1,119 +1,201 @@
 <html>
-
-<head>
-	<style>
-		
-		.container {
- 		 max-width: 28rem;
-		 margin: 0 auto;
-		}
-		
-		@media (min-width: 38rem) {
-  		.container {
-	    	 max-width: 32rem;
- 		}}
-		
-		@media (min-width: 56rem) {
-  		.container {
-   		 max-width: 38rem;
-  		}}
-
-
-
-		.index-bookmarklet {
-		 margin-top: 25px;
-		 -moz-border-radius: 65px;
-		 -webkit-border-radius: 65px;
-		 border-radius: 65px;
-	        }
-		         
-		.index-bookmarklet:hover {
-		 -moz-box-shadow: 0px 1px 10px 2px #656565;
-		 -webkit-box-shadow: 0px 1px 10px 2px #656565;
-		 box-shadow: 0px 1px 10px 2px #656565;
-		 -moz-border-radius: 65px;
-		 -webkit-border-radius: 65px;
-		 border-radius: 65px;
-	         -moz-transition: -moz-box-shadow 0.3s;
-		 -webkit-transition: -webkit-box-shadow 0.3s;
-		 transition: box-shadow 0.3s;
-		}
-		
-		hr {
-		 position: relative;
-                 margin-top: 75px;
-                 padding-top: 0px !important;
-		 border: 0;
-		 border-top: 1px solid #EEEEEE;
-		 border-bottom: 2px solid #FFFFFF;
-		}
-
-		#main {
-		 display: flex;
-		 justify-content: center;
-		}
-
-                h1 {
-                 text-align: center;
-                 color: #1f5baa;
-                 font-family: "PT Sans", Helvetica, Arial, sans-serif;
-                 font-size: 18px;
-                 font-weight = "bold";
-                }
-		
-
-                p {
-                 text-align: right;
-                 margin-top: -7px;
-                 padding-right: 4px;
-                 color: #CCCCCC;
-                 font-family: "PT Sans", Helvetica, Arial, sans-serif;
-                 font-size: 10px;
-                 font-weight = "bold";
-                }
-
-	</style>
-</head>
-
-<body>
-	
-	<div id="main">
-
-		<div>
-			<img src="https://github.com/sajadmh/WD-Scraper/blob/main/assets/bookmarkme.png?raw=true" style="width: 355px; height: auto; padding: 6px; opacity: 0.8;">
-		</div>
-
-		<div>
-			<a href='javascript: (function scrape1() { unformattedTitle = document.querySelector(".WPIX")?.innerText; title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("(")); unformattedSubtitle = document.querySelector(".WIIX")?.innerText; subtitle = unformattedSubtitle.slice(12); source = document.getElementById("56$581439")?.innerText; unformattedManager = document.getElementById("56$307577")?.innerText || ""; manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" (")); unformattedRecruiter = document.getElementById("56$307582")?.innerText || ""; recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" (")); unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || ""; phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" (")); email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || ""; tab = String.fromCodePoint(9); console.log("scraped!"); url = window.location.href; navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "25px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function(){ el.remove(); }, 4250); } })();' id='bookmarklet'>
-				<img class="index-bookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper.png" alt="Grab WD Data" style="width: 210px; height: auto;">
-			</a>
-		</div>
-		</div>
-		
-
-	<div class="container">
-
-
-		<hr />
-
-                <p>Version: 0.1  (x003)</p>
-
-		<!-- <h1>WD Scraper grabs data and copies to your clipboard.</h1> --!>
-
-
-	</div>
-		
-		
-		<script type="text/javascript">
-			$('#bookmarklet').click(function(e) {
-			             e.preventDefault();
-			         });
-		</script>
-		
-</body>
-	
-<link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper-48x48.png"/>
-	
+   <head>
+      <style>
+         .container {
+         max-width: 28rem;
+         margin: 0 auto;
+         }
+         @media (min-width: 38rem) {
+         .container {
+         max-width: 32rem;
+         }}
+         @media (min-width: 56rem) {
+         .container {
+         max-width: 38rem;
+         }}
+         .index-bookmarklet {
+         margin-top: 25px;
+         -moz-border-radius: 65px;
+         -webkit-border-radius: 65px;
+         border-radius: 65px;
+         }
+         .index-bookmarklet:hover {
+         -moz-box-shadow: 0px 1px 10px 2px #656565;
+         -webkit-box-shadow: 0px 1px 10px 2px #656565;
+         box-shadow: 0px 1px 10px 2px #656565;
+         -moz-border-radius: 65px;
+         -webkit-border-radius: 65px;
+         border-radius: 65px;
+         -moz-transition: -moz-box-shadow 0.3s;
+         -webkit-transition: -webkit-box-shadow 0.3s;
+         transition: box-shadow 0.3s;
+         }
+         hr {
+         position: relative;
+         margin-top: 75px;
+         padding-top: 0px !important;
+         border: 0;
+         border-top: 1px solid #EEEEEE;
+         border-bottom: 2px solid #FFFFFF;
+         }
+         #main {
+         display: flex;
+         justify-content: center;
+         }
+         h1 {
+         text-align: center;
+         color: #1f5baa;
+         font-family: "PT Sans", Helvetica, Arial, sans-serif;
+         font-size: 18px;
+         font-weight = "bold";
+         }
+         p {
+         text-align: right;
+         margin-top: -7px;
+         padding-right: 4px;
+         color: #CCCCCC;
+         font-family: "PT Sans", Helvetica, Arial, sans-serif;
+         font-size: 10px;
+         font-weight = "bold";
+         }
+         .accordion {
+         background-color: #F5F5F5;
+         color: #444;
+         cursor: pointer;
+         padding: 16px;
+         width: 100%;
+         border: none;
+         text-align: left;
+         outline: none;
+         font-family: 'Courier New', monospace;
+         font-size: 12px;
+         font-weight: bold;
+         transition: 0.4s;
+         border-radius: 6px;
+         }
+         .active, .accordion:hover {
+         background-color: #ececec; 
+         }
+         .panel {
+         padding: 15px 14px;
+         display: none;
+         background-color: white;
+         overflow: hidden;
+         }
+         .codeblock {
+         font-family: monospace;
+         font-size: 15px;
+         border-radius: 3px;
+         background-color: #F5F5F5;
+         border: 1px solid #EEEEEE;
+         padding: 8px 12px;
+         overflow-x: auto;
+         }
+         p1 {
+         padding-top: 10px;
+         color: #000000;
+         font-family: "PT Sans", Helvetica, Arial, sans-serif;
+         font-size: 13px;
+         font-weight = "bold";
+         }
+      </style>
+   </head>
+   <body>
+      <div id="main">
+         <div>
+            <img src="https://github.com/sajadmh/WD-Scraper/blob/main/assets/bookmarkme.png?raw=true" style="width: 355px; height: auto; padding: 6px; opacity: 0.8;">
+         </div>
+         <div>
+            <a href='javascript: (function scrape() { unformattedTitle = document.querySelector(".WPIX")?.innerText; title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("(")); unformattedSubtitle = document.querySelector(".WIIX")?.innerText; subtitle = unformattedSubtitle.slice(12); source = document.getElementById("56$581439")?.innerText; unformattedManager = document.getElementById("56$307577")?.innerText || ""; manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" (")); unformattedRecruiter = document.getElementById("56$307582")?.innerText || ""; recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" (")); unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || ""; phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" (")); email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || ""; tab = String.fromCodePoint(9); console.log("scraped!"); url = window.location.href; navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "25px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function(){ el.remove(); }, 4250); } })();' id='bookmarklet'>
+            <img class="index-bookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper.png" alt="Grab WD Data" style="width: 210px; height: auto;">
+            </a>
+         </div>
+      </div>
+      <div class="container">
+         <hr />
+         <button class="accordion">See The Code</button>
+         <div class="panel">
+            <div class="codeblock">
+               <code>
+               javascript: (function scrape() {
+               unformattedTitle = document.querySelector(".WPIX")?.innerText;
+               title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("("));
+               unformattedSubtitle = document.querySelector(".WIIX")?.innerText;
+               subtitle = unformattedSubtitle.slice(12);
+               source = document.getElementById("56$581439")?.innerText;
+               unformattedManager = document.getElementById("56$307577")?.innerText || "";
+               manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" ("));
+               unformattedRecruiter = document.getElementById("56$307582")?.innerText || "";
+               recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" ("));
+               unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || "";
+               phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" ("));
+               email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || "";
+               tab = String.fromCodePoint(9);
+               console.log("scraped!");
+               url = window.location.href;
+               navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager);
+               var el = document.createElement("div"),
+               b = document.getElementsByTagName("body")[0],
+               msg = "Copied to clipboard!";
+               el.style.position = "fixed";
+               el.style.zIndex = 99999;
+               el.style.height = "25px";
+               el.style.width = "175px";
+               el.style.lineHeight = "25px";
+               el.style.textAlign = "center";
+               el.style.top = "25px";
+               el.style.left = "50%";
+               el.style.marginLeft = "-87px";
+               el.style.padding = "10px 10px";
+               el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif";
+               el.style.fontSize = "15px";
+               el.style.fontWeight = "bold";
+               el.style.color = "#333333";
+               el.style.backgroundColor = "#FFFFFF";
+               el.style.border = "solid 1px #CECECE";
+               el.style.boxShadow = "0px 0px 6px #D6D6D6";
+               el.style.borderRadius = "9px";
+               if (document.hasFocus()) {
+               return showMsg();
+               }
+               function showMsg() {
+               el.innerHTML = msg;
+               b.appendChild(el);
+               window.setTimeout(function() {
+               el.remove();
+               }, 4250);
+               }
+               })();
+               </code>
+            </div>
+         </div>
+         <hr />
+         <p>Version: 0.1  (x003)</p>
+	      
+      </div>
+      <script type="text/javascript">
+         $('#bookmarklet').click(function(e) {
+                      e.preventDefault();
+                  });
+      </script>
+      <script>
+         var acc = document.getElementsByClassName("accordion");
+         var i;
+         
+         for (i = 0; i < acc.length; i++) {
+           acc[i].addEventListener("click", function() {
+             this.classList.toggle("active");
+             var panel = this.nextElementSibling;
+             if (panel.style.display === "block") {
+               panel.style.display = "none";
+             } else {
+               panel.style.display = "block";
+             }
+           });
+         }
+      </script>
+   </body>
+   <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper-48x48.png"/>
 </html>
-	
+
 <!-- html/css credit artoo.js --!>
