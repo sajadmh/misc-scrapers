@@ -70,7 +70,7 @@
          text-align: left;
          outline: none;
          font-family: 'Courier New', monospace;
-         font-size: 12px;
+         font-size: 13px;
          font-weight: bold;
          transition: 0.4s;
          border-radius: 6px;
@@ -92,6 +92,7 @@
          border: 1px solid #EEEEEE;
          padding: 8px 12px;
          overflow-x: auto;
+         margin-bottom: 6px;
          }
          p1 {
          padding-top: 10px;
@@ -99,6 +100,10 @@
          font-family: "PT Sans", Helvetica, Arial, sans-serif;
          font-size: 13px;
          font-weight = "bold";
+         }
+         pre {
+         white-space: pre-line;
+         margin-top: 0px;
          }
       </style>
    </head>
@@ -180,7 +185,7 @@ el.remove();
          <div class="panel">
             <div class="codeblock">
 
-<pre>javascript: (function scrape() {
+<pre></code>javascript: (function scrape() {
 unformattedTitle = document.querySelector(".WPIX")?.innerText;
 title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("("));
 unformattedSubtitle = document.querySelector(".WIIX")?.innerText;
@@ -228,7 +233,7 @@ window.setTimeout(function() {
 el.remove();
 }, 4250);
 }
-})();</pre>
+})();</code></pre>
 
             </div>
          </div>
