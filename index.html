@@ -41,22 +41,29 @@
          }
          .index-calendarbookmarklet {
 	 background: none;
-         margin-top: 100px;
-         margin-left: 0px;
-	 -moz-border-radius: 100px;
-         -webkit-border-radius: 100px;
-         border-radius: 100px;
+         margin-top: 17px;
+         margin-left: 12px;
          }
          .index-calendarbookmarklet:hover {
-         -moz-box-shadow: 0px 1px 10px 2px #656565;
-         -webkit-box-shadow: 0px 1px 10px 2px #656565;
-         box-shadow: 0px 1px 10px 2px #656565;
-	 -moz-border-radius: 100px;
-         -webkit-border-radius: 100px;
-         border-radius: 100px;
-         -moz-transition: -moz-box-shadow 0.3s;
-         -webkit-transition: -webkit-box-shadow 0.3s;
-         transition: box-shadow 0.3s;
+         -moz-filter: drop-shadow(0px 3px 4px #656565);
+         -webkit-filter: drop-shadow(0px 3px 4px #656565);
+         filter: drop-shadow(0px 3px 4px #656565); 
+         -moz-transition: -moz-filter: 0.3s;
+         -webkit-transition: -webkit-filter 0.3s;
+         transition: filter 0.3s;
+         }
+	 .index-gmeetbookmarklet {
+	 background: none;
+         margin-top: 146px;
+         margin-left: -151px;
+         }
+         .index-gmeetbookmarklet:hover {
+         -moz-filter: drop-shadow(0px 3px 4px #656565);
+         -webkit-filter: drop-shadow(0px 3px 4px #656565);
+         filter: drop-shadow(0px 3px 4px #656565); 
+         -moz-transition: -moz-filter: 0.3s;
+         -webkit-transition: -webkit-filter 0.3s;
+         transition: filter 0.3s;
          }
          .text-block {
          position: relative;
@@ -161,12 +168,12 @@
          position: fixed;
          top: 10px;
          right: 10px;
-         background-color: #F5F5F5;
+         background-color: rgb(206, 206, 206, 0.4);
          color: #;
          cursor: pointer;
          padding: 10px 8px;
          width: 270px;
-         border: 1px solid #EEEEEE !important;
+         border: 1px solid rgb(178, 178, 178, 0.37) !important;
 	 text-align: center;
          outline: none;
          font-family: 'Courier New', monospace;
@@ -187,10 +194,10 @@
          }
          .toast-hr {
          position: relative;
-         margin-top: 6px;
-         margin-bottom: 6px;
+         margin-top: 8px;
+         margin-bottom: 8px;
          border: 0;
-         border-top: 1px solid #DDDDDD !important;
+         border-top: 1px solid rgb(178, 178, 178, 0.4) !important;
 	 z-index: 99999;
          }
       </style>
@@ -198,11 +205,11 @@
    <body>
       <div id="main">
          <div>
-            <img src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/Arrow-Drag-Me.png" style="width: 315px; height: auto; padding: 1px; opacity: 0.8;">
+            <img src="https://raw.githubusercontent.com/sajadmh/WD-Hub/main/assets/Arrow-Drag-Me.png" style="width: 315px; height: auto; padding: 1px; opacity: 0.8;">
          </div>
          <div>
             <a href='javascript: (function scrapewd() { unformattedTitle = document.querySelector(".WPIX")?.innerText; title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("(")); unformattedSubtitle = document.querySelector(".WIIX")?.innerText; subtitle = unformattedSubtitle.slice(12); source = document.getElementById("56$581439")?.innerText; unformattedManager = document.getElementById("56$307577")?.innerText || ""; manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" (")); unformattedRecruiter = document.getElementById("56$307582")?.innerText || ""; recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" (")); unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || ""; phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" (")); email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || ""; tab = String.fromCodePoint(9); url = window.location.href; navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager); console.log("Workday Scraped!"); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function(){ el.remove(); }, 4250); } })();' id='bookmarklet'>
-            <img class="index-workdaybookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper.png" alt="Grab WD Data" style="width: auto; height: 160px;">
+            <img class="index-workdaybookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Hub/main/assets/WD-Scraper.png" alt="Grab WD Data" style="width: auto; height: 160px;">
             </a>
 
 
@@ -218,10 +225,17 @@
 
 <div>
             <a href='javascript: (function scrapecal() { unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText; date = unformattedDate.replace("⋅", " ⋅ "); children = []; invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*"); whiteList = ["attending"]; invitees = Array.from(document.querySelectorAll(&apos;[role="treeitem"]&apos;)).filter(child => whiteList.some(item => child.getAttribute("aria-label").toLowerCase().includes(item))); invitees.forEach(child => children.push(child.innerText)); children.forEach((child, i) => children[i] = child.replace(/,/g, "")); delimiter = ", <i>Title</i><br>"; blob = new Blob(["<b>" + date + "</b> with:</br>" + children.join(delimiter) + delimiter], { type: "text/html" }); data = [new ClipboardItem({ "text/html": blob })]; navigator.clipboard.write(data); console.log("Google Calendar Scraped! " + children + " "); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();' id='bookmarklet'>
-            <img class="index-calendarbookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/Google-Calendar.png" alt="Grab Calendar Info" style="width: auto; height: 125px;">
+            <img class="index-calendarbookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Hub/main/assets/Google-Calendar.png" alt="Grab Calendar Info" style="width: auto; height: 113px;">
             </a>
          </div>
 
+
+	      <div>
+            <a href='javascript: (function scrapecal() { unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText; date = unformattedDate.replace("⋅", " ⋅ "); children = []; invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*"); whiteList = ["attending"]; invitees = Array.from(document.querySelectorAll(&apos;[role="treeitem"]&apos;)).filter(child => whiteList.some(item => child.getAttribute("aria-label").toLowerCase().includes(item))); invitees.forEach(child => children.push(child.innerText)); children.forEach((child, i) => children[i] = child.replace(/,/g, "")); delimiter = ", <i>Title</i><br>"; blob = new Blob(["<b>" + date + "</b> with:</br>" + children.join(delimiter) + delimiter], { type: "text/html" }); data = [new ClipboardItem({ "text/html": blob })]; navigator.clipboard.write(data); console.log("Google Calendar Scraped! " + children + " "); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();' id='bookmarklet'>
+            <img class="index-gmeetbookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Hub/main/assets/Google-Meet.png" alt="Grab Google Meet" style="width: auto; height: 100px;">
+            </a>
+         </div>
+	      
 
       </div>
       <div class="container">
@@ -242,7 +256,7 @@
 
          <button class="accordion">How To Install (GIF)</button>
          <div class="panel">
-         <img src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/draggif.gif" style="width: 100%; margin-bottom: 10px;">
+         <img src="https://raw.githubusercontent.com/sajadmh/WD-Hub/main/assets/draggif.gif" style="width: 100%; margin-bottom: 10px;">
          </div>
 
 
