@@ -267,7 +267,7 @@
          <div class="panel">
             <div class="codeblock">
 
-<pre><xmp>javascript: (function scrapewd() {
+<pre><xmp>javascript: (function scrape() {
     unformattedTitle = document.querySelector(".WPIX")?.innerText;
     title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("("));
     unformattedSubtitle = document.querySelector(".WIIX")?.innerText;
@@ -349,7 +349,7 @@
     children = [];
     invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*");
     whiteList = ["attending"];
-    invitees = Array.from(document.querySelectorAll("[role="treeitem"]")).filter(child => whiteList.some(item => child.getAttribute("aria-label").toLowerCase().includes(item)));
+    invitees = Array.from(document.querySelectorAll('[role="treeitem"]')).filter(child => whiteList.some(item => child.getAttribute("aria-label").toLowerCase().includes(item)));
     invitees.forEach(child => children.push(child.innerText));
     children.forEach((child, i) => children[i] = child.replace(/,/g, ""));
     delimiter = ", <i>Title</i><br>";
