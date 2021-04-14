@@ -56,8 +56,9 @@
          text-align: center;
          color: #1f5baa;
          font-family: "PT Sans", Helvetica, Arial, sans-serif;
-         font-size: 18px;
-         font-weight = "bold";
+         font-size: 25px;
+         font-weight: "bold";
+         margin-bottom: -2px;
          }
          p {
          text-align: right;
@@ -112,7 +113,11 @@
          }
          pre {
          white-space: pre-line;
-         margin-top: 0px;
+         margin: 0px;
+         }
+         xmp {
+         white-space: pre-wrap;
+         margin: 0px;
          }
          .toast {
          position: fixed;
@@ -159,24 +164,37 @@
          </div>
          <div>
             <a href='javascript: (function scrapewd() { unformattedTitle = document.querySelector(".WPIX")?.innerText; title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("(")); unformattedSubtitle = document.querySelector(".WIIX")?.innerText; subtitle = unformattedSubtitle.slice(12); source = document.getElementById("56$581439")?.innerText; unformattedManager = document.getElementById("56$307577")?.innerText || ""; manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" (")); unformattedRecruiter = document.getElementById("56$307582")?.innerText || ""; recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" (")); unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || ""; phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" (")); email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || ""; tab = String.fromCodePoint(9); url = window.location.href; navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager); console.log("Workday Scraped!"); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function(){ el.remove(); }, 4250); } })();' id='bookmarklet'>
-            <img class="index-bookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper.png" alt="Grab WD Data" style="width: 210px; height: auto;">
+            <img class="index-bookmarklet" src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/WD-Scraper.png" alt="Grab WD Data" style="width: 180px; height: auto;">
             </a>
          </div>
       </div>
       <div class="container">
 
 
+<h1>Read Me</h1>
+
          <hr />
+
+	<button class="accordion">What Is This?</button>
+         <div class="panel">
+		 <div class="codeblock">
+			 
+		 <code>These are <b>bookmarklets</b>, which are bookmarks that contain JavaScript code (instead of a URL). Clicking the bookmark will run the code on the webpage that you have open.</code>
+			 
+		 </div>
+	</div>
 
          <button class="accordion">How To Install (GIF)</button>
          <div class="panel">
          <img src="https://raw.githubusercontent.com/sajadmh/WD-Scraper/main/assets/draggif.gif" style="width: 100%; margin-bottom: 10px;">
          </div>
 
-<br /><br />
+
+<br /><br /><br />
+
+<h1>Workday Scraper</h1>
+
          <hr />
-
-
 
          <button class="accordion">See The Code (Copy and Paste)</button>
          <div class="panel">
@@ -193,7 +211,7 @@
          <div class="panel">
             <div class="codeblock">
 
-<pre></code>javascript: (function scrapewd() {
+<pre><xmp>javascript: (function scrapewd() {
     unformattedTitle = document.querySelector(".WPIX")?.innerText;
     title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("("));
     unformattedSubtitle = document.querySelector(".WIIX")?.innerText;
@@ -213,8 +231,8 @@
     console.log("Workday Scraped!");
 
     var el = document.createElement("div"),
-        b = document.getElementsByTagName("body")[0],
-        msg = "Copied to clipboard!";
+    b = document.getElementsByTagName("body")[0],
+    msg = "Copied to clipboard!";
     el.style.position = "fixed";
     el.style.zIndex = 99999;
     el.style.height = "25px";
@@ -244,7 +262,7 @@
             el.remove();
         }, 4250);
     }
-})();</code></pre>
+})();</xmp></pre>
 
             </div>
          </div>
@@ -258,6 +276,70 @@
 			 
 		 </div>
 	</div>
+
+<br /><br /><br />
+
+<h1>Google Calendar Scraper</h1>
+
+<hr>
+	
+<button class="accordion">See The Code (Readable Version)</button>
+	<div class="panel">
+	<div class="codeblock">
+	
+<pre><xmp>javascript: (function scrapecal() {
+    unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText;
+    date = unformattedDate.replace("⋅", " ⋅ ");
+    children = [];
+    invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*");
+    blackList = ["optional", "maybe", "declined"];
+    invitees = Array.from(document.querySelectorAll('[role="treeitem"]')).filter(child => !blackList.some(item => child.getAttribute("aria-label").toLowerCase().includes(item)));
+    invitees.forEach(child => children.push(child.innerText));
+    children.forEach((child, i) => children[i] = child.replace(/,/g, ""));
+    delimiter = ", <i>Title</i><br>";
+    blob = new Blob(["<b>" + date + "</b> with:</br>" + children.join(delimiter) + delimiter], { type: "text/html" });
+    data = [new ClipboardItem({ "text/html": blob })];
+    navigator.clipboard.write(data);
+	
+    console.log("Google Calendar Scraped!" + children);
+
+    var el = document.createElement("div"),
+    b = document.getElementsByTagName("body")[0],
+    msg = "Copied to clipboard!";
+    el.style.position = "fixed";
+    el.style.zIndex = 99999;
+    el.style.height = "25px";
+    el.style.width = "175px";
+    el.style.lineHeight = "25px";
+    el.style.textAlign = "center";
+    el.style.top = "10px";
+    el.style.left = "50%";
+    el.style.marginLeft = "-87px";
+    el.style.padding = "10px 10px";
+    el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif";
+    el.style.fontSize = "15px";
+    el.style.fontWeight = "bold";
+    el.style.color = "#333333";
+    el.style.backgroundColor = "#FFFFFF";
+    el.style.border = "solid 1px #CECECE";
+    el.style.boxShadow = "0px 0px 6px #D6D6D6";
+    el.style.borderRadius = "9px";
+    if (document.hasFocus()) {
+        return showMsg();
+    }
+
+    function showMsg() {
+        el.innerHTML = msg;
+        b.appendChild(el);
+        window.setTimeout(function() {
+            el.remove();
+        }, 4250);
+    }
+})();
+</xmp></pre>
+		
+	</div></div>
+
          <hr />
 
          <p>Version: 0.1  (x004)</p>
