@@ -23,7 +23,8 @@
          max-width: 45rem;
          }}
          .index-workdaybookmarklet {
-         margin-top: 22px;
+         margin-top: 20px;
+         margin-right: 8px;
          -moz-border-radius: 100px;
          -webkit-border-radius: 100px;
          border-radius: 100px;
@@ -104,7 +105,7 @@
          font-size: 25px;
          font-weight: "bold";
          padding: 4px;
-         margin-left: 50px;
+         margin-left: 55px;
          margin-bottom: -10px;
          }
          p {
@@ -158,6 +159,12 @@
          font-size: 13px;
          font-weight: "bold";
          }
+         p2 {
+         color: #000000;
+         font-family: "PT Sans", Helvetica, Arial, sans-serif;
+         font-size: 14px;
+         text-indent: 100px !important;
+         }
          pre {
          white-space: pre-line;
          margin: 0px;
@@ -168,8 +175,8 @@
          }
          .toast {
          position: fixed;
-         top: 10px;
-         right: 10px;
+         bottom: 10px;
+         left: 10px;
          background-color: rgb(206, 206, 206, 0.4);
          color: #;
          cursor: pointer;
@@ -232,7 +239,7 @@
 
 
 <div>
-            <a href='javascript: (function scrapecal() { unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText; date = unformattedDate.replace("⋅", " ⋅ "); children = []; invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*"); whiteList = ["attending"]; invitees = Array.from(document.querySelectorAll(&apos;[role="treeitem"]&apos;)).filter(child => whiteList.some(item => child.getAttribute("aria-label").toLowerCase().includes(item))); invitees.forEach(child => children.push(child.innerText)); children.forEach((child, i) => children[i] = child.replace(/,/g, "")); delimiter = ", <i>Title</i><br>"; blob = new Blob(["<b>" + date + "</b> with:</br>" + children.join(delimiter) + delimiter], { type: "text/html" }); data = [new ClipboardItem({ "text/html": blob })]; navigator.clipboard.write(data); console.log("Google Calendar Scraped! " + children + " "); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();' id='bookmarklet'>
+            <a href='javascript: (function scrapecal() { unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText; date = unformattedDate.replace("⋅", " ⋅ "); children = []; invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*"); invitees = Array.from(document.querySelectorAll(&apos;[role="treeitem"]&apos;)).filter(child=> { const ariaLabel=child.getAttribute("aria-label").toLowerCase(); return ariaLabel.includes("attending")&&!ariaLabel.includes("optional")&&!ariaLabel.includes("maybe") }); invitees.forEach(child => children.push(child.innerText)); children.forEach((child, i) => children[i] = child.replace(/,/g, "")); optionalWith = invitees.length?" with:":""; delimiter = invitees.length?", <i>Title</i><br>":""; blob = new Blob(["<b>" + date + "</b>" + optionalWith + "</br>" + children.join(delimiter) + delimiter], { type: "text/html" }); data = [new ClipboardItem({ "text/html": blob })]; navigator.clipboard.write(data); console.log("Google Calendar Scraped! " + children + " "); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();' id='bookmarklet'>
             <img class="index-calendarbookmarklet" src="https://raw.githubusercontent.com/sajadmh/Scraper-Hub/main/assets/Google-Calendar.png" alt="Grab Calendar Data" style="width: auto; height: 113px;">
             </a>
          </div>
@@ -276,6 +283,10 @@
 <div id="myHeading">
     <img src="https://raw.githubusercontent.com/sajadmh/Scraper-Hub/main/assets/WD-Scraper.png" style="height: 30px; width: auto; margin-top: 3px; margin-left: 8px;"/>
    <h1>Workday Scraper</h1>
+
+    <div style = "position: relative; margin: 0px 80px 0px 43px;" >
+    <p2 style="position: relative; top: 5px; left: 15px;">Grabs a Workday profile's <b>title, phone number, email address, source, hiring manager, recruiter</b> and hyperlinks the <b>URL</b> in your clipboard to paste in a spreadsheet across columns</p2>
+    </div>
 </div>
 
          <hr />
@@ -284,7 +295,7 @@
          <div class="panel">
             <div class="codeblock">
 
-<code>javascript: (function scrapewd() { unformattedTitle = document.querySelector(".WPIX")?.innerText; title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("(")); unformattedSubtitle = document.querySelector(".WIIX")?.innerText; subtitle = unformattedSubtitle.slice(12); source = document.getElementById("56$581439")?.innerText; unformattedManager = document.getElementById("56$307577")?.innerText || ""; manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" (")); unformattedRecruiter = document.getElementById("56$307582")?.innerText || ""; recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" (")); unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || ""; phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" (")); email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || ""; tab = String.fromCodePoint(9); url = window.location.href; navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager); console.log("Workday Scraped!"); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();</code>
+<code><xmp>javascript: (function scrapewd() { unformattedTitle = document.querySelector(".WPIX")?.innerText; title = unformattedTitle.slice(0, unformattedTitle.lastIndexOf("(")); unformattedSubtitle = document.querySelector(".WIIX")?.innerText; subtitle = unformattedSubtitle.slice(12); source = document.getElementById("56$581439")?.innerText; unformattedManager = document.getElementById("56$307577")?.innerText || ""; manager = unformattedManager.slice(0, unformattedManager.lastIndexOf(" (")); unformattedRecruiter = document.getElementById("56$307582")?.innerText || ""; recruiter = unformattedRecruiter.slice(0, unformattedRecruiter.lastIndexOf(" (")); unformattedPhone = document.querySelectorAll(".WG1W.WP0W.WN-W")[0]?.innerText || ""; phone = unformattedPhone?.slice(0, unformattedPhone.lastIndexOf(" (")); email = document.querySelectorAll(".WG1W.WP0W.WN-W")[1]?.innerText || ""; tab = String.fromCodePoint(9); url = window.location.href; navigator.clipboard.writeText("=HYPERLINK(\"" + url + "\", \"" + title + "-" + subtitle + "\")" + tab + source + tab + "&apos;" + phone + tab + email + tab + recruiter + tab + manager); console.log("Workday Scraped!"); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();</xmp></code>
 
             </div>
          </div>
@@ -352,6 +363,7 @@
          </div>
 	
 	
+<!--
 	<button class="accordion">How To Read And Customize The Code</button>
          <div class="panel">
 		 <div class="codeblock">
@@ -361,14 +373,32 @@
 		 </div>
 	</div>
 
+-->
+
+
 <br /><br /><br />
 
 <div id="myHeading">
     <img src="https://raw.githubusercontent.com/sajadmh/Scraper-Hub/main/assets/Google-Calendar.png" style="height: 30px; width: auto; margin-top: 3px; margin-left: 8px;"/>
     <h1>Google Calendar Scraper</h1>
+
+    <div style = "position: relative; margin: 0px 80px 0px 43px;" >
+    <p2 style="position: relative; top: 5px; left: 17px;">Grabs the Google Calendar invite <b>date, time</b> and lists the <b>attending guests</b> in your clipboard</p2>
+    </div>
 </div>
 
+
 <hr>
+
+  <button class="accordion">See The Code (Copy and Paste)</button>
+         <div class="panel">
+            <div class="codeblock">
+
+<code><xmp>javascript: (function scrapecal() { unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText; date = unformattedDate.replace("⋅", " ⋅ "); children = []; invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*"); invitees = Array.from(document.querySelectorAll('[role="treeitem"]')).filter(child=> { const ariaLabel=child.getAttribute("aria-label").toLowerCase(); return ariaLabel.includes("attending")&&!ariaLabel.includes("optional")&&!ariaLabel.includes("maybe") }); invitees.forEach(child => children.push(child.innerText)); children.forEach((child, i) => children[i] = child.replace(/,/g, "")); optionalWith = invitees.length?" with:":""; delimiter = invitees.length?", <i>Title</i><br>":""; blob = new Blob(["<b>" + date + "</b>" + optionalWith + "</br>" + children.join(delimiter) + delimiter], { type: "text/html" }); data = [new ClipboardItem({ "text/html": blob })]; navigator.clipboard.write(data); console.log("Google Calendar Scraped! " + children + " "); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();</xmp></code>
+
+            </div>
+         </div>
+
 	
 <button class="accordion">See The Code (Readable Version)</button>
 	<div class="panel">
@@ -379,12 +409,12 @@
     date = unformattedDate.replace("⋅", " ⋅ ");
     children = [];
     invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*");
-    whiteList = ["attending"];
-    invitees = Array.from(document.querySelectorAll('[role="treeitem"]')).filter(child => whiteList.some(item => child.getAttribute("aria-label").toLowerCase().includes(item)));
+	invitees = Array.from(document.querySelectorAll('[role="treeitem"]')).filter(child=> { const ariaLabel=child.getAttribute("aria-label").toLowerCase(); return ariaLabel.includes("attending")&&!ariaLabel.includes("optional")&&!ariaLabel.includes("maybe") });
     invitees.forEach(child => children.push(child.innerText));
     children.forEach((child, i) => children[i] = child.replace(/,/g, ""));
-    delimiter = ", <i>Title</i><br>";
-    blob = new Blob(["<b>" + date + "</b> with:</br>" + children.join(delimiter) + delimiter], { type: "text/html" });
+	optionalWith = invitees.length?" with:":"";
+	delimiter = invitees.length?", <i>Title</i><br>":"";
+    blob = new Blob(["<b>" + date + "</b>" + optionalWith + "</br>" + children.join(delimiter) + delimiter], { type: "text/html" });
     data = [new ClipboardItem({ "text/html": blob })];
     navigator.clipboard.write(data);
 	
@@ -428,6 +458,94 @@
 	</div></div>
 
          <hr />
+
+
+
+
+<br /><br />
+
+<div id="myHeading">
+    <img src="https://raw.githubusercontent.com/sajadmh/Scraper-Hub/main/assets/Google-Meet.png" style="height: 28px; width: auto; margin-top: 5px; margin-left: 8px;"/>
+    <h1>Google Meet Scraper</h1>
+
+
+    <div style = "position: relative; margin: 0px 80px 0px 43px;" >
+    <p2 style="position: relative; top: 5px; left: 17px;">Grabs the Google Meet <b>link</b> and puts it in your clipboard</p2>
+    </div>
+</div>
+
+
+<hr>
+
+  <button class="accordion">See The Code (Copy and Paste)</button>
+         <div class="panel">
+            <div class="codeblock">
+
+<code><xmp>javascript: (function scrapecal() { unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText; date = unformattedDate.replace("⋅", " ⋅ "); children = []; invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*"); invitees = Array.from(document.querySelectorAll('[role="treeitem"]')).filter(child=> { const ariaLabel=child.getAttribute("aria-label").toLowerCase(); return ariaLabel.includes("attending")&&!ariaLabel.includes("optional")&&!ariaLabel.includes("maybe") }); invitees.forEach(child => children.push(child.innerText)); children.forEach((child, i) => children[i] = child.replace(/,/g, "")); optionalWith = invitees.length?" with:":""; delimiter = invitees.length?", <i>Title</i><br>":""; blob = new Blob(["<b>" + date + "</b>" + optionalWith + "</br>" + children.join(delimiter) + delimiter], { type: "text/html" }); data = [new ClipboardItem({ "text/html": blob })]; navigator.clipboard.write(data); console.log("Google Calendar Scraped! " + children + " "); var el = document.createElement("div"), b = document.getElementsByTagName("body")[0], msg = "Copied to clipboard!"; el.style.position = "fixed"; el.style.zIndex = 99999; el.style.height = "25px"; el.style.width = "175px"; el.style.lineHeight = "25px"; el.style.textAlign = "center"; el.style.top = "10px"; el.style.left = "50%"; el.style.marginLeft = "-87px"; el.style.padding = "10px 10px"; el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif"; el.style.fontSize = "15px"; el.style.fontWeight = "bold"; el.style.color = "#333333"; el.style.backgroundColor = "#FFFFFF"; el.style.border = "solid 1px #CECECE"; el.style.boxShadow = "0px 0px 6px #D6D6D6"; el.style.borderRadius = "9px"; if (document.hasFocus()) { return showMsg(); } function showMsg() { el.innerHTML = msg; b.appendChild(el); window.setTimeout(function() { el.remove(); }, 4250); } })();</xmp></code>
+
+            </div>
+         </div>
+
+	
+<button class="accordion">See The Code (Readable Version)</button>
+	<div class="panel">
+	<div class="codeblock">
+	
+<pre><xmp>javascript: (function scrapecal() {
+    unformattedDate = document.querySelectorAll(".DN1TJ.fX8Pqc.CyPPBf")[0]?.innerText;
+    date = unformattedDate.replace("⋅", " ⋅ ");
+    children = [];
+    invitees = document.querySelectorAll(".kMp0We.YaPvld.USzdTb.X4Mf1d>*");
+	invitees = Array.from(document.querySelectorAll('[role="treeitem"]')).filter(child=> { const ariaLabel=child.getAttribute("aria-label").toLowerCase(); return ariaLabel.includes("attending")&&!ariaLabel.includes("optional")&&!ariaLabel.includes("maybe") });
+    invitees.forEach(child => children.push(child.innerText));
+    children.forEach((child, i) => children[i] = child.replace(/,/g, ""));
+	optionalWith = invitees.length?" with:":"";
+	delimiter = invitees.length?", <i>Title</i><br>":"";
+    blob = new Blob(["<b>" + date + "</b>" + optionalWith + "</br>" + children.join(delimiter) + delimiter], { type: "text/html" });
+    data = [new ClipboardItem({ "text/html": blob })];
+    navigator.clipboard.write(data);
+	
+    console.log("Google Calendar Scraped! " + children + " ");
+
+    var el = document.createElement("div"),
+    b = document.getElementsByTagName("body")[0],
+    msg = "Copied to clipboard!";
+    el.style.position = "fixed";
+    el.style.zIndex = 99999;
+    el.style.height = "25px";
+    el.style.width = "175px";
+    el.style.lineHeight = "25px";
+    el.style.textAlign = "center";
+    el.style.top = "10px";
+    el.style.left = "50%";
+    el.style.marginLeft = "-87px";
+    el.style.padding = "10px 10px";
+    el.style.fontFamily = "Roboto, Helvetica Neue, Helvetica, Arial, sans-serif";
+    el.style.fontSize = "15px";
+    el.style.fontWeight = "bold";
+    el.style.color = "#333333";
+    el.style.backgroundColor = "#FFFFFF";
+    el.style.border = "solid 1px #CECECE";
+    el.style.boxShadow = "0px 0px 6px #D6D6D6";
+    el.style.borderRadius = "9px";
+    if (document.hasFocus()) {
+        return showMsg();
+    }
+
+    function showMsg() {
+        el.innerHTML = msg;
+        b.appendChild(el);
+        window.setTimeout(function() {
+            el.remove();
+        }, 4250);
+    }
+})();
+</xmp></pre>
+		
+	</div></div>
+
+
+<hr />
 
          <p>Version: 0.1  (x007)</p>
 	      
