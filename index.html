@@ -495,7 +495,9 @@
     unformattedgMeet = document.querySelector(".EyDoae a").getAttribute("href");
     gMeet = unformattedgMeet.slice(0, unformattedgMeet.lastIndexOf("?"));
     navigator.clipboard.writeText(gMeet);
+    
     console.log("Google Meet Link Scraped!");
+    
     var el = document.createElement("div"),
     b = document.getElementsByTagName("body")[0],
     msg = "Copied to clipboard!";
