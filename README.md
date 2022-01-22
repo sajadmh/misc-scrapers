@@ -1,4 +1,4 @@
-#Misc Scraper Bookmarklets
+# Scraper Bookmarks (AKA Bookmarklets)
 
 
 <h2>Instructions:</h2>
